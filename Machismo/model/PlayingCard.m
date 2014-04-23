@@ -18,13 +18,16 @@
     int score = 0;
     
     if ([otherCards count] == 1) {
-        // first object method - return the first object in an array, if no object, return nil
-        PlayingCard *otherCard = [otherCards firstObject];
-        if ([self.suit isEqualToString:otherCard.suit]) {
-            score = 1;
-        }
-        else if (self.rank == otherCard.rank) {
-            score = 4;
+        id card =[otherCards firstObject];
+        if ([card isKindOfClass:[PlayingCard class]]){
+            // first object method - return the first object in an array, if no object, return nil
+            PlayingCard *otherCard = [otherCards firstObject];
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+            }
+            else if (self.rank == otherCard.rank) {
+                score = 4;
+            }
         }
     }
     return score;
